@@ -1,121 +1,114 @@
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Scanner;
 
-class PerfilMedico
-{
+class PerfilMedico {
     private String nombre;
     private String apellido;
     private char sexo;
-    private int dia, mes, anio;
-    private double altura, peso;
-    
-    public PerfilMedico(String nombre, String apellido, char sexo, int dia, int mes, int anio, double altura, double peso )
-    {
+    private int diaNacimiento;
+    private int mesNacimiento;
+    private int anioNacimiento;
+    private double altura; // en centímetros
+    private double peso;   // en kilogramos
+
+    public PerfilMedico(String nombre, String apellido, char sexo,
+                        int diaNacimiento, int mesNacimiento, int anioNacimiento,
+                        double altura, double peso) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
-        this.dia = dia;
-        this.mes = mes;
-        this.anio = anio;
+        this.diaNacimiento = diaNacimiento;
+        this.mesNacimiento = mesNacimiento;
+        this.anioNacimiento = anioNacimiento;
         this.altura = altura;
         this.peso = peso;
     }
 
+    public String getnombre() {
+        return nombre;
+    }
 
-public String getnombre() {  
-    return nombre;
-}
-   
-public void setnombre(String nombre) {  // modificar valor *set
-    this.nombre = nombre;
-}
+    public void setnombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-public String getapellido() {  
-    return apellido;
-}
-   
-public void setapellido(String apellido) {  
-    this.apellido = apellido;
-}
+    public String getApellido() {
+        return apellido;
+    }
 
-public char getsexo() {  
-    return sexo;
-}
-   
-public void setsexo(char sexo) {  
-    this.sexo = sexo;
-}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-public int getdia() {  
-    return dia;
-}
-   
-public void setdia(int dia) {  
-    this.dia = dia;
-}
+    public char getSexo() {
+        return sexo;
+    }
 
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
 
-public int getmes() {  
-    return mes;
-}
-   
-public void setmes(int mes) {  
-    this.mes = mes;
-}
+    public int getDiaNacimiento() {
+        return diaNacimiento;
+    }
 
+    public void setDiaNacimiento(int diaNacimiento) {
+        this.diaNacimiento = diaNacimiento;
+    }
 
-public int getanio() {  
-    return anio;
-}
-   
-public void setanio(int anio) {  
-    this.anio = anio;
-}
+    public int getMesNacimiento() {
+        return mesNacimiento;
+    }
 
+    public void setMesNacimiento(int mesNacimiento) {
+        this.mesNacimiento = mesNacimiento;
+    }
 
-public double getaltura() {  
-    return altura;
-}
-   
-public void setaltura(double altura) {  
-    this.altura = altura;
-}
+    public int getAnioNacimiento() {
+        return anioNacimiento;
+    }
 
+    public void setAnioNacimiento(int anioNacimiento) {
+        this.anioNacimiento = anioNacimiento;
+    }
 
-public double getpeso() {  
-    return peso;
-}
-   
-public void setpeso(double peso) {  
-    this.peso = peso;
-}
+    public double getAltura() {
+        return altura;
+    }
 
-        // Fecha de nacimiento
-        LocalDate fechaNacimiento = LocalDate.of(anio, mes, dia);
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
 
-        // Fecha actual
-        LocalDate fechaActual = LocalDate.now();
-    
-        // Calcular la diferencia entre las fechas
-        Period periodo = Period.between(fechaNacimiento, fechaActual);
-    
-        // Obtener la edad
-        int edad = periodo.getYears();
+    public double getPeso() {
+        return peso;
+    }
 
-public int calcularFrecuenciaCardiacaMaxima() {
-    return 220 - edad;
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public int calcularEdad() {
+        // Suponiendo que la fecha actual es 2023-08-23
+        int edad = 2023 - anioNacimiento;
+        if (mesNacimiento > 8 || (mesNacimiento == 8 && diaNacimiento > 23)) {
+            edad--;
+        }
+        return edad;
+    }
+
+    public int calcularFrecuenciaCardiacaMaxima() {
+        return 220 - calcularEdad();
+    }
+
+    public double calcularIMC() {
+        double alturaEnMetros = altura / 100.0;
+        return peso / (alturaEnMetros * alturaEnMetros);
+    }
 }
 
-public double calcularIMC() {
-    double alturaEnMetros = altura / 100.0;
-    return peso / (alturaEnMetros * alturaEnMetros);
-}
-}
 
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -128,14 +121,14 @@ public class Main {
         System.out.println("Ingrese el sexo (M/F):");
         char sexo = scanner.nextLine().charAt(0);
 
-        System.out.println("Ingrese el año de nacimiento:");
-        int anio = scanner.nextInt();
+        System.out.println("Ingrese el día de nacimiento:");
+        int diaNacimiento = scanner.nextInt();
 
         System.out.println("Ingrese el mes de nacimiento:");
-        int mes = scanner.nextInt();
+        int mesNacimiento = scanner.nextInt();
 
-        System.out.println("Ingrese el dia de nacimiento:");
-        int dia = scanner.nextInt();
+        System.out.println("Ingrese el año de nacimiento:");
+        int anioNacimiento = scanner.nextInt();
 
         System.out.println("Ingrese la altura (en cm):");
         double altura = scanner.nextDouble();
@@ -144,33 +137,23 @@ public class Main {
         double peso = scanner.nextDouble();
 
         PerfilMedico perfil = new PerfilMedico(nombre, apellido, sexo,
-                                               dia, mes, anio,
+                                               diaNacimiento, mesNacimiento, anioNacimiento,
                                                altura, peso);
 
         System.out.println("\nInformación del perfil médico:");
-        System.out.println("Nombre: " + perfil.getnombre() + " " + perfil.getapellido());
-        System.out.println("Sexo: " + perfil.getsexo());
+        System.out.println("Nombre: " + perfil.getnombre() + " " + perfil.getApellido());
+        System.out.println("Sexo: " + perfil.getSexo());
+        System.out.println("Fecha de nacimiento: " + perfil.getDiaNacimiento() + "/" +
+                           perfil.getMesNacimiento() + "/" + perfil.getAnioNacimiento());
+        System.out.println("Altura: " + perfil.getAltura() + " cm");
+        System.out.println("Peso: " + perfil.getPeso() + " kg");
 
-        System.out.println("Altura: " + perfil.getaltura() + " cm");
-        System.out.println("Peso: " + perfil.getpeso() + " kg");
-
-        
+        int edad = perfil.calcularEdad();
         double imc = perfil.calcularIMC();
         int fcm = perfil.calcularFrecuenciaCardiacaMaxima();
-        // Fecha de nacimiento
-        LocalDate fechaNacimiento = LocalDate.of(anio, mes, dia);
-
-        // Fecha actual
-        LocalDate fechaActual = LocalDate.now();
-    
-        // Calcular la diferencia entre las fechas
-        Period periodo = Period.between(fechaNacimiento, fechaActual);
-    
-        // Obtener la edad
-        int edad = periodo.getYears();       
 
         System.out.println("\nEdad: " + edad + " años");
         System.out.println("Índice de Masa Corporal (IMC): " + imc);
         System.out.println("Frecuencia Cardiaca Máxima (FCM): " + fcm + " latidos por minuto");
-    
-} }
+    }
+}
