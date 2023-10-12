@@ -14,6 +14,6 @@ public class Cubo extends FiguraTridimensional{
         return vol;
     }
     public void Describir(){
-        System.out.println("El cubo tiene:\nUna arista de: "+arista+"\nUn área de: "+this.obtenerArea()+"\nUn volumen de: "+this.obtenerVolumen());
+        System.out.println("El cubo es una figura tridimensional\nEste tiene:\nUna arista de: "+arista);
     }
 }

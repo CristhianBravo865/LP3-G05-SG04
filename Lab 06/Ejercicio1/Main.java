@@ -2,7 +2,6 @@ package Ejercicio1;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear un arreglo de Figura y llenarlo con objetos de las diferentes clases
         Figura[] figuras = new Figura[]{
             new Triangulo(3,2),
             new Circulo(4),
@@ -11,15 +10,23 @@ public class Main {
             new Cubo(2),
             new Tetraedro(2)
         };
-        // Procesar cada figura en el arreglo
         for (Figura figura : figuras) {
             figura.Describir();
 
-            if (figura instanceof FiguraBidimensional) {
+            if (figura instanceof FiguraBidimensional){
+                System.out.println("Área: ");
                 System.out.println(((FiguraBidimensional) figura).obtenerArea());
-            } else if (figura instanceof FiguraTridimensional) {
+                if (figura instanceof Circulo){
+                    System.out.println("Color: "+((Circulo)figura).getColor());
+                }
+            } else if (figura instanceof FiguraTridimensional){
+                System.out.println("Área: ");
                 System.out.println(((FiguraTridimensional) figura).obtenerArea());
+                System.out.println("Volumen: ");
                 System.out.println(((FiguraTridimensional) figura).obtenerVolumen());
+                if (figura instanceof Tetraedro){
+                    System.out.println("Aplicación: "+((Tetraedro)figura).getAplicacion());
+                }
             }
             
             System.out.println();

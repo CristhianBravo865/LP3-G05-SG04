@@ -24,6 +24,6 @@ public class Triangulo extends FiguraBidimensional{
         this.b = b;
     }
     public void Describir(){
-        System.out.println("El triangulo tiene:\nUna altura de: "+h+"\nUna base de: "+b+"\nUn área de: "+this.obtenerArea());
+    System.out.println("El triangulo es una figura bidimensional\nEste tiene:\nUna altura de: "+h+"\nUna base de: "+b);
     }
 }

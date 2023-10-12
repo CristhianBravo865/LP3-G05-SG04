@@ -14,6 +14,6 @@ public class Esfera extends FiguraTridimensional{
         return vol;
     }
     public void Describir(){
-        System.out.println("La esfera tiene:\nUn radio de: "+radio+"\nUn área de: "+this.obtenerArea()+"\nUn volumen de: "+this.obtenerVolumen());
+        System.out.println("La esfera es una figura tridimensional\nEste tiene:\nUn radio de: "+radio);
     }
 }

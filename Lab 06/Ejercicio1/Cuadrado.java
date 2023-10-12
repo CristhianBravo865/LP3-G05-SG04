@@ -16,6 +16,6 @@ public class Cuadrado extends FiguraBidimensional{
         this.lado = lado;
     };
     public void Describir(){
-        System.out.println("El cuadrado tiene:\nUn lado de: "+lado+"\nUn área de: "+this.obtenerArea());
+        System.out.println("El cuadrado es una figura bidimensional\nEste tiene:\nUn lado de: "+lado);
     }
 }
