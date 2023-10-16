@@ -13,4 +13,11 @@ public class Bicicleta implements ImpactoEcologico{
         double impactoecologico=datoactividad*factoremision;
         return impactoecologico;
     }
+
+    @Override
+    public String toString() {
+        return "\nBicicleta: "+"\nDesechos por refacciones en kg: "+this.desechosrefaccionesKG
+        +"\nTiempo de vida de la bicicleta en años: "+this.tiempovidaAÑOS;
+    }
+    
 }

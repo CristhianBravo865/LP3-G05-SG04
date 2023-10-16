@@ -29,5 +29,4 @@ public class Tetraedro extends FiguraTridimensional{
     public void setArista(double arista) {
         this.arista = arista;
     }
-    
 }

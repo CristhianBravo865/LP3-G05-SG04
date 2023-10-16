@@ -15,4 +15,12 @@ public class Auto implements ImpactoEcologico{
         double impactoecologico=datoactividad*factoremision;
         return impactoecologico;
     }
+
+    @Override
+    public String toString() {
+        return "\nAuto: "+"\nEmisiones Directas: "+this.emisionesdirectas+
+        "\nDesechos por refacciones en kg: "+this.desechosrefaccionesKG
+        +"\nTiempo de vida del auto en años: "+this.tiempovidaAÑOS;
+    }
+    
 }
