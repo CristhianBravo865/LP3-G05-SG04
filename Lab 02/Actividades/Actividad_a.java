@@ -9,10 +9,10 @@ public class Animal{
 
     public Animal (String Raza, int Edad, double Peso, double Temperatura)
     {
-        this.Raza = raza;
-        this.Edad = edad;
-        this.Peso = peso;
-        this.Temperatura = temp;
+        this.Raza = Raza;
+        this.Edad = Edad;
+        this.Peso = Peso;
+        this.Temperatura = Temperaturaemp;
     }
     public int getEdad() {  // obetener valor *get
         return edad;
