@@ -17,7 +17,6 @@ public class Ejercicio2 extends JFrame implements ActionListener {
         setSize(568, 568);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(10, 2));
-
         JLabel nombreLabel = new JLabel("Nombre:");
         nombreTextField = new JTextField();
 
