@@ -1,6 +1,6 @@
 package Lab10;
 
-public class Ejercicio1 {
+public class Ejercicios1al3 {
     public static void imprimirArray(Object[] inputArray) {
         for (Object elemento : inputArray)
             System.out.printf("%s ", elemento);
@@ -39,14 +39,14 @@ public class Ejercicio1 {
     
     //Main
     public static void main(String[] args) {
-        String[] ls={"Uno","Dos","Tres","Cuatro","Cinco","Seis","Siete","Ocho"};
         //Ejercicio 1
+        String[] ls={"Uno","Dos","Tres","Cuatro","Cinco","Seis","Siete","Ocho"};
         imprimirArray(ls);
 
         //Ejercicio 2
+        imprimirArray(ls); 
         intercambiarElementos(ls, 0, 7);
         imprimirArray(ls);
-
         //Ejercicio 3
         Object obj1 = true;
         Object obj2 = true;
@@ -54,16 +54,15 @@ public class Ejercicio1 {
 
         Integer int1 = 5;
         Integer int2 = 3;
-        System.out.println("¿Son iguales los enteros ? " + isEqualTo(int1, int2));
+        System.out.println("\n¿Son iguales los enteros ? " + isEqualTo(int1, int2));
 
         Double dbl1 = 3.14;
         Double dbl2 = 2.14;
-        System.out.println("¿Son iguales los números decimales ? " + isEqualTo(dbl1, dbl2));
+        System.out.println("\n¿Son iguales los números decimales ? " + isEqualTo(dbl1, dbl2));
 
         String str1 = "Hola";
         String str2 = "Hola";
-        System.out.println("¿Son iguales las cadenas ? " + isEqualTo(str1, str2));
-
+        System.out.println("\n¿Son iguales las cadenas ? " + isEqualTo(str1, str2));
         
     }
 
